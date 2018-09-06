@@ -25,20 +25,24 @@
 int isKaprekar(int n) {
 
   if(n < 1) {
-    return false;
+    return 0;
+      //You can't return in false bacause youa are working with an integer
   }
 
   int i;
   long square = n * (long) n;
-  int numDigits = (int) log10(n) + 1;
-  long modulus = 0;
+  int numDigits = (int) log10(square) + 1;
+    // We want to run program with the square so for example we write 45 it will rum numbers between 0 and 45 so we want the square
+  long modulus = 1;
+    //modulus hasn't to be equal to zero because you can't divide the square into zero
   long first, second;
 
   //for each possible "split" of the square...
-  for(i=1; i<=numberOfDigits; i++) {
+  for(i=1; i<=numDigits; i++) {
+      //numberOfDigits was incorrect because the variable was numDigits.
     //increase the modulus by a factor of 10
-    modulous *= 10;
-
+    modulus *= 10;
+     //modulous was incorrect because of the spelling , so the variable was modulus.
     //split the square into two parts
     first = square / modulus;
     second = square % modulus;
